@@ -1,5 +1,6 @@
 // Michael Granberry
-// COMP 322L - Lab 2
+// COMP 322L
+// Lab 2 - Batch Process Scheduling
 // Spring 2023
 
 #include <stdio.h>
