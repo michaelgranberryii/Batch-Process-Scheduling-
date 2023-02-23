@@ -22,15 +22,15 @@ int num_processes;
 void PROCEDURE_TO_PRINT_THE_CONTENTS_OF_THE_SCHEDULING_TABLE() {
 // declare local variables
 // print table header
-    printf("ID\t\tArrival\tTotal\tStart\tEnd\t\tTurnaround\n");
+    printf("ID\tArrival\tTotal\tStart\tEnd\tTurnaround\n");
     printf("--------------------------------------------------\n");
 // for each process
     for(int i = 0; i < num_processes; i++) {
         // print the contents (id, arrival time, total_cycles) of each field of the table's index
-        printf("p%d\t\t%d\t\t%d\t\t", table_ptr[i].id, table_ptr[i].arrival, table_ptr[i].total_cpu);
+        printf("p%d\t%d\t%d\t", table_ptr[i].id, table_ptr[i].arrival, table_ptr[i].total_cpu);
         // if process has been scheduled ("done" field is 1, print other contents (start time, end time, turnaround time)
         if(table_ptr[i].done == 1) {
-            printf("%d\t\t%d\t\t%d\t", table_ptr[i].start_time, table_ptr[i].end_time, table_ptr[i].turnaround_time);
+            printf("%d\t%d\t%d", table_ptr[i].start_time, table_ptr[i].end_time, table_ptr[i].turnaround_time);
         }
         printf("\n");
     }
@@ -43,7 +43,7 @@ return;
 void PROCEDURE_FOR_OPTION_1() {
     // declare local variables
     // prompt for total number of processes
-    printf("How many processes: ");
+    printf("How many processes: \n");
     scanf("%d", &num_processes);
     // allocate memory for table to hold process parameters
     table_ptr = (table_type* )calloc(num_processes, sizeof(table_type));
@@ -51,9 +51,9 @@ void PROCEDURE_FOR_OPTION_1() {
     for(int i = 0; i < num_processes; i++) {
         // prompt for arrival time, and total cycle time
         table_ptr[i].id = i;
-        printf("Enter arrival cycle for process p%d: ", i);
+        printf("Enter arrival cycle for process p%d: \n", i);
         scanf("%d",&table_ptr[i].arrival);
-        printf("Enter total cycles for process p%d ", i);
+        printf("Enter total cycles for process p%d \n", i);
         scanf("%d",&table_ptr[i].total_cpu);
     }
 
